@@ -1,30 +1,28 @@
-# ReservationHub — API Automation Framework
+# ReservationHub API Automation
 
-## Overview
+A Java-based REST API automation framework built using **REST Assured and TestNG** for validating the ReservationHub booking APIs.
 
-ReservationHub is a REST API automation framework built for the QA Engineer (API Automation) assignment using **Java, REST Assured, TestNG, Jackson, JSON Schema validation and Allure**.
-
-The suite targets the public **Restful Booker** sandbox and focuses on meaningful API coverage, negative testing, authentication, response contracts, maintainable framework structure, and actionable reporting.
-
-The primary goal is not maximum test count, but a reliable suite that can detect realistic booking defects and provide enough evidence for a developer to investigate a failure.
+The framework follows a layered, maintainable architecture with reusable service classes, POJO-based request and response models, authentication handling, JSON Schema validation, TestNG grouping, centralized request/response logging, and Allure reporting.
 
 ---
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| Java 17 | Programming language |
-| REST Assured 6.0.1 | API automation |
-| TestNG 7.12.0 | Test execution and grouping |
-| Jackson 2.22.3 | JSON serialization/deserialization |
-| JSON Schema Validator 6.0.1 | Response contract validation |
-| Allure 2.29.1 | Test reporting |
-| Maven | Build and dependency management |
+| Technology | Version | Purpose |
+|---|---:|---|
+| Java | 17+ | Programming language |
+| REST Assured | 6.0.1 | REST API automation |
+| TestNG | 7.12.0 | Test execution |
+| Jackson | 2.22.3 | JSON serialization/deserialization |
+| JSON Schema Validator | 6.0.1 | API contract validation |
+| Allure | 2.29.1 | Test reporting |
+| Maven | 3.x | Build and dependency management |
 
 ---
 
 ## API Under Test
+
+The framework automates the public **Restful Booker API**.
 
 **Base URL**
 
@@ -32,14 +30,14 @@ The primary goal is not maximum test count, but a reliable suite that can detect
 https://restful-booker.herokuapp.com
 ```
 
-### Endpoints covered
+### API Coverage
 
-| Method | Endpoint | Coverage |
+| Method | Endpoint | Purpose |
 |---|---|---|
 | GET | `/ping` | Health check |
-| POST | `/auth` | Authentication/token generation |
-| GET | `/booking` | Booking IDs and filters |
-| GET | `/booking/{id}` | Retrieve booking |
+| POST | `/auth` | Generate authentication token |
+| GET | `/booking` | Retrieve booking IDs |
+| GET | `/booking/{id}` | Retrieve booking by ID |
 | POST | `/booking` | Create booking |
 | PUT | `/booking/{id}` | Full booking update |
 | PATCH | `/booking/{id}` | Partial booking update |
@@ -50,131 +48,217 @@ https://restful-booker.herokuapp.com
 ## Framework Architecture
 
 ```text
-src
-├── main
-│   ├── java/com.api
-│   │   ├── base
-│   │   │   └── BaseService.java
-│   │   ├── config
-│   │   │   └── ConfigReader.java
-│   │   ├── constants
-│   │   │   └── Endpoints.java
-│   │   ├── filters
-│   │   │   └── RequestResponseLoggingFilter.java
-│   │   ├── models
-│   │   │   ├── request
-│   │   │   └── response
-│   │   └── services
-│   │       ├── AuthService.java
-│   │       ├── BookingService.java
-│   │       └── PingService.java
-│   └── resources
-│       └── config.properties
-│
-└── test
-    ├── java/com.api
-    │   ├── tests
-    │   ├── utils
-    │   ├── validators
-    │   └── listeners
-    └── resources
-        ├── schemas
-        ├── testng-suites
-        └── allure.properties
+                    ┌──────────────────────┐
+                    │     Test Classes     │
+                    │ Auth / Booking /     │
+                    │ CRUD / Negative      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    Service Layer     │
+                    │ AuthService          │
+                    │ BookingService       │
+                    │ PingService          │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │     BaseService      │
+                    │ Request setup        │
+                    │ HTTP operations      │
+                    │ Authentication       │
+                    │ Logging              │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │     REST Assured     │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Restful Booker API │
+                    └──────────────────────┘
 ```
 
-### Design approach
+### Design Approach
 
-The framework follows a service-layer approach:
-
-```text
-Test Classes
-     ↓
-Service Classes
-     ↓
-BaseService
-     ↓
-REST Assured
-     ↓
-Restful Booker API
-```
-
-- **Test classes** contain test scenarios and assertions.
-- **Service classes** encapsulate endpoint/API operations.
-- **BaseService** contains reusable HTTP request infrastructure.
-- **Models** represent request and response payloads.
-- **ConfigReader** centralizes environment configuration.
-- **TestDataHelper** provides reusable test data/setup operations.
-- **ResponseValidator** centralizes reusable response validation.
-- **JSON schemas** validate important response contracts.
-- **TestNG listeners and Allure** provide execution/reporting support.
+- **Test Layer** — Contains test scenarios and assertions.
+- **Service Layer** — Encapsulates endpoint-specific API operations.
+- **Base Layer** — Provides reusable REST Assured request infrastructure.
+- **Model Layer** — Contains request and response POJOs.
+- **Configuration Layer** — Loads environment-specific configuration.
+- **Validation Layer** — Provides reusable response and JSON Schema validation.
+- **Utility Layer** — Provides reusable authentication and test-data helpers.
+- **Filter Layer** — Provides centralized request/response logging.
+- **Listener Layer** — Provides TestNG execution logging.
 
 ---
 
-## Test Strategy
-
-The suite uses a risk-based approach rather than testing every possible input combination.
-
-### 1. Happy-path coverage
-
-The core booking lifecycle is covered:
+## Project Structure
 
 ```text
-Create → Read → PUT → PATCH → Delete → Verify deletion
+ReservationHub
+│
+├── pom.xml
+├── README.md
+├── BUGS.md
+├── .gitignore
+│
+└── src
+    ├── main
+    │   ├── java/com.api
+    │   │   ├── base
+    │   │   ├── config
+    │   │   ├── constants
+    │   │   ├── filters
+    │   │   ├── models
+    │   │   │   ├── request
+    │   │   │   └── response
+    │   │   └── services
+    │   └── resources
+    │       └── config.properties
+    │
+    └── test
+        ├── java/com.api
+        │   ├── listeners
+        │   ├── tests
+        │   └── utils
+        └── resources
+            ├── allure.properties
+            ├── schemas
+            └── testng-suites
 ```
 
-Assertions validate both status codes and response content rather than relying only on HTTP status.
+---
 
-### 2. Authentication
+## Test Coverage
 
-The suite covers:
+### Authentication
 
-- Successful token generation
+- Valid credentials
 - Invalid username
 - Invalid password
 - Empty credentials
-- Missing authentication for write operations
-- Invalid authentication for write operations
+- Authentication token generation
+- Missing authentication for protected operations
+- Invalid authentication for protected operations
 
-The framework uses the API's token-based Cookie authentication:
+### Booking Creation
+
+- Valid booking creation
+- Empty required fields
+- Empty request payload
+- Negative price
+- Zero price
+- Invalid booking date range
+- Response body validation
+- JSON Schema validation
+
+### Booking Retrieval
+
+- Retrieve booking IDs
+- Retrieve booking by ID
+- Filter bookings by firstname and lastname
+- Filter bookings by check-in and checkout dates
+- Non-existent booking ID
+- Negative booking ID
+- Response Schema validation
+
+### Full Booking Update
+
+- PUT booking update
+- Authentication validation
+- Updated response validation
+- Persistence verification using GET
+
+### Partial Booking Update
+
+- PATCH booking update
+- Update selected fields
+- Verify unchanged fields
+- Persistence verification
+- Authentication validation
+
+### Booking Deletion
+
+- Delete booking
+- Verify deleted booking
+- Missing authentication
+- Invalid authentication
+- Already deleted booking behavior
+
+### Health Check
+
+- `/ping` endpoint validation
+
+---
+
+## Authentication
+
+The framework obtains an authentication token dynamically through:
+
+```text
+POST /auth
+```
+
+Credentials are loaded through the configuration layer.
+
+Authenticated booking operations use the API-supported Cookie mechanism:
 
 ```text
 Cookie: token=<token>
 ```
 
-### 3. Negative and boundary testing
-
-The suite probes scenarios including:
-
-- Negative price
-- Zero price
-- Empty required fields
-- Empty payload
-- Invalid booking date ranges
-- Invalid/malformed date input
-- Non-existent booking IDs
-- Negative booking IDs
-- Missing authentication
-- Invalid authentication
-
-The purpose is to verify both expected validation behavior and defects in the system under test.
-
-### 4. Response contract testing
-
-JSON Schema validation is applied to important responses, including:
-
-- Authentication response
-- Booking ID list
-- Booking response
-- Create-booking response
-
-This helps detect structural/API contract regressions that field-level assertions alone may miss.
+Tokens are generated during test execution instead of being hardcoded into individual test cases.
 
 ---
 
-## Test Organization
+## Test Data Management
 
-Tests are grouped using TestNG groups:
+The framework avoids depending on hardcoded booking IDs for scenarios that require controlled data.
+
+Where required, tests create their own booking and capture the generated booking ID:
+
+```text
+Create Booking
+      ↓
+Capture Booking ID
+      ↓
+Perform API Operation
+      ↓
+Validate Response
+      ↓
+Verify Persisted State
+```
+
+This helps keep tests independent and reduces dependency on seeded records in the shared API environment.
+
+---
+
+## JSON Schema Validation
+
+The framework validates response contracts using JSON Schema.
+
+Current schemas:
+
+```text
+src/test/resources/schemas/
+
+├── auth-response-schema.json
+├── booking-ids-response-schema.json
+├── booking-response-schema.json
+└── create-booking-response-schema.json
+```
+
+Schema validation is used alongside field-level assertions to verify both response data and response structure.
+
+---
+
+## TestNG Groups
+
+Tests are organized into:
 
 ```text
 smoke
@@ -183,67 +267,47 @@ negative
 auth
 ```
 
-Suite files are available under:
+Available TestNG suites:
 
 ```text
 src/test/resources/testng-suites/
-```
 
-Available suites:
-
-```text
-testng.xml
-testng-smoke.xml
-testng-regression.xml
-testng-negative.xml
-testng-auth.xml
+├── testng.xml
+├── testng-smoke.xml
+├── testng-regression.xml
+├── testng-negative.xml
+└── testng-auth.xml
 ```
 
 ---
 
-## How to Run
+## Prerequisites
 
-### Run the complete suite
+Install:
 
-```bash
-mvn clean test
-```
+- Java 17 or higher
+- Maven 3.x
+- Git
 
-### Run Smoke tests
-
-```bash
-mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-smoke.xml
-```
-
-### Run Regression tests
+Verify:
 
 ```bash
-mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-regression.xml
-```
-
-### Run Negative tests
-
-```bash
-mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-negative.xml
-```
-
-### Run Authentication tests
-
-```bash
-mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-auth.xml
+java -version
+mvn -version
+git --version
 ```
 
 ---
 
 ## Configuration
 
-Environment-specific values are separated from test code in:
+Environment-specific configuration is maintained in:
 
 ```text
 src/main/resources/config.properties
 ```
 
-Current configuration:
+Example:
 
 ```properties
 base.url=https://restful-booker.herokuapp.com
@@ -251,145 +315,193 @@ username=admin
 password=password123
 ```
 
-`ConfigReader` loads these values at runtime so endpoint configuration and credentials are not hardcoded throughout the test classes.
+For production environments, credentials should be provided through environment variables or a secure secrets-management solution.
 
-For a real production framework, credentials should be supplied through environment variables or a secrets-management solution rather than committed to source control.
+---
+
+## Running the Tests
+
+### Complete suite
+
+```bash
+mvn clean test
+```
+
+### Smoke tests
+
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-smoke.xml
+```
+
+### Regression tests
+
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-regression.xml
+```
+
+### Negative tests
+
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-negative.xml
+```
+
+### Authentication tests
+
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng-suites/testng-auth.xml
+```
 
 ---
 
 ## Reporting
 
-The framework uses **Allure** for structured test reporting.
+The framework uses **Allure** for test reporting.
 
-Generate the report with:
+Generate the report:
 
 ```bash
 mvn allure:report
 ```
 
-The generated report is located at:
+Generated report:
 
 ```text
 target/site/allure-maven-plugin/
 ```
 
-The submitted `ReservationHub-Allure-Report.zip` contains the generated report output.
+### View Allure Report
 
-The report provides:
-
-- Overall pass/fail summary
-- Individual test results
-- Test grouping
-- Request details
-- Response details
-- Assertions and failure information
-- Execution evidence
-
-Because Allure is a browser-based JavaScript application, the extracted report should be served through a local HTTP server rather than opened directly using `file://` if the browser displays a blank/loading page.
-
-Example:
+Serve the report through a local HTTP server:
 
 ```bash
 cd target/site/allure-maven-plugin
 python3 -m http.server 8080
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:8080
 ```
 
+The report provides:
+
+- Overall execution summary
+- Passed/failed tests
+- Test grouping
+- Request details
+- Response details
+- Assertions
+- Failure information
+
+A generated Allure report is also provided separately with the project submission.
+
 ---
 
-## API Defects Found
+## Request & Response Logging
 
-The detailed defect report is available in:
+A centralized REST Assured filter captures request and response information during test execution.
+
+The logging includes:
+
+- HTTP method
+- Request URI
+- Request headers
+- Request body
+- Response status
+- Response headers
+- Response body
+
+This provides useful diagnostic information when investigating failed API tests.
+
+---
+
+## Defects Identified
+
+During negative testing, the API was observed accepting invalid booking data.
+
+Detailed defect reports are available in:
 
 ```text
 BUGS.md
 ```
 
-The confirmed defects include:
+Confirmed scenarios include:
 
-1. Negative `totalprice` is accepted when creating a booking.
-2. Checkout date earlier than check-in date is accepted.
-3. Empty `checkin` can be accepted and returned as malformed date data (`0NaN-aN-aN`).
+- Negative `totalprice` accepted
+- Checkout date earlier than check-in accepted
+- Empty `checkin` resulting in malformed date data
 
-Additional observed scenarios are also summarized in `BUGS.md`, with inconsistent or environment-dependent observations clearly separated from confirmed defects.
-
----
-
-## Shared Sandbox and Test Reliability
-
-Restful Booker is a public shared sandbox. The assignment notes that:
-
-- The instance contains seeded records.
-- Data resets periodically.
-- The environment can experience cold starts and slow responses.
-- Tests must not depend on data created by another test.
-
-To address this:
-
-- Tests create their own booking data where test-specific data is required.
-- Created booking IDs are captured dynamically rather than relying on hardcoded IDs.
-- Authentication tokens are generated during test execution.
-- CRUD tests use dynamically created resources.
-- Tests are designed to be independently executable wherever practical.
-- The framework does not rely on execution order for core booking scenarios.
-
-The public/shared nature of the environment means that occasional external instability or reset behavior can still affect tests.
+Additional observations and scenarios requiring further verification are also documented in `BUGS.md`.
 
 ---
 
-## Deliberate Scope / What Is Not Covered
+## Environment Considerations
 
-The suite focuses on the assignment's core API testing requirements.
+The Restful Booker API is a public shared sandbox.
 
-The following were deliberately not expanded into a large test matrix:
+The environment can:
 
-- Exhaustive combinations of every field and data type
-- Large-scale performance/load testing
-- Full security penetration testing
-- Production-scale concurrency testing
-- UI/browser automation
-- Full CI/CD pipeline configuration
+- Reset booking data periodically
+- Contain seeded records
+- Experience cold starts
+- Respond slowly
+- Be affected by other users interacting with the same instance
 
-These areas could be added for a production system, but they were outside the primary objective of this assignment.
+The framework therefore creates controlled test data where required instead of relying heavily on pre-existing booking records.
 
 ---
 
 ## Known Limitations
 
-1. **Shared test environment**  
-   The API is public and can be affected by resets or other users.
-
-2. **Cold starts / response latency**  
-   The sandbox may occasionally respond slowly after inactivity.
-
-3. **Schema variability**  
-   Some existing seeded booking responses may omit optional fields such as `additionalneeds`; the response schema reflects the observed API contract rather than assuming every seeded record has every optional property.
-
-4. **Environment-dependent filtering behavior**  
-   Date-based filtering was observed to return an unexpected empty result for a controlled booking. This has been kept separate from the confirmed defects until the behavior can be isolated from shared-environment/reset effects.
-
-5. **Credentials**  
-   The assignment uses the public sandbox credentials. A production implementation should obtain credentials from secure environment configuration or secret management.
+- The API runs on a shared public sandbox.
+- Test data can be reset by the environment.
+- Response time can vary during cold starts.
+- Some seeded records may not contain optional response fields.
+- Date-filter behavior can be affected by the shared test environment and requires isolation before being treated as a confirmed API defect.
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
-If this framework were being developed for a production service, potential next steps would include:
+Potential enhancements for a production-scale implementation include:
 
 - CI/CD integration
 - Environment-specific configuration
 - Secure secret management
-- Retry/wait handling for transient cold-start failures
-- Data-driven/parameterized negative tests
+- Retry/wait handling for transient failures
+- Data-driven and parameterized tests
 - Parallel execution with stronger test-data isolation
-- Performance smoke testing
-- API contract validation from an OpenAPI specification
-- Enhanced reporting with environment/build metadata
+- Performance testing
+- OpenAPI-based contract validation
+- Enhanced reporting with build and environment metadata
+- Integration with test-management and defect-tracking tools
 
 ---
+
+## Repository
+
+**GitHub:**  
+https://github.com/nowitsabhi1727/ReservationHub
+
+---
+
+## Author
+
+### Abhishek Dudhani
+
+Senior Software Engineer | QA Automation Engineer
+
+**Automation & Testing**
+
+- Java
+- REST Assured
+- Selenium WebDriver
+- Playwright
+- API Testing
+- TestNG
+- Maven
+- Jenkins / CI-CD
+- SQL
+- Git / GitHub
+- Postman
