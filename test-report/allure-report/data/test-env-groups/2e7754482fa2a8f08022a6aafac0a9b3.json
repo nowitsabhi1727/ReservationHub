@@ -1,0 +1,1 @@
+{"id":"2e7754482fa2a8f08022a6aafac0a9b3","fullName":"com.api.tests.BookingReadAPITest.getBookingWithNegativeId","name":"Verify retrieving a booking with negative ID is rejected","status":"passed","testResultsByEnv":{"default":"172a9969074c6292cce9f0de263c2d53"}}

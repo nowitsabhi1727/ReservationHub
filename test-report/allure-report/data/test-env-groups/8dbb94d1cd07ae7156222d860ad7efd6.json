@@ -1,0 +1,1 @@
+{"id":"8dbb94d1cd07ae7156222d860ad7efd6","fullName":"com.api.tests.AuthAPITest.emptyCredentials","name":"Verify authentication fails with empty credentials","status":"passed","testResultsByEnv":{"default":"fecccf10128fcfb1db0ba57e8709562f"}}

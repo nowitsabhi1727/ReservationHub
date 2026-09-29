@@ -1,0 +1,1 @@
+{"id":"0ee747edd4549641b362fe92169a5a9d","fullName":"com.api.tests.BookingReadAPITest.getBookingIdsByName","name":"Verify bookings can be filtered by firstname and lastname","status":"passed","testResultsByEnv":{"default":"ed6b27af46e9d8639cb8fa1b286bb073"}}
