@@ -1,0 +1,1 @@
+{"id":"0acbdd6159a3c002f3d5c9170d2bedc0","fullName":"com.api.tests.BookingCreateNegativeAPITest.checkoutBeforeCheckin","name":"Verify booking creation with checkout date before checkin date","status":"passed","testResultsByEnv":{"default":"6dfd31dcb347565f1f066816e3780d04"}}

@@ -1,0 +1,1 @@
+{"id":"fabed8aad6b52a43e6b54e5944d130e5","fullName":"com.api.tests.BookingReadAPITest.getBookingIdsByDate","name":"Verify bookings can be filtered by checkin and checkout","status":"failed","testResultsByEnv":{"default":"f26651f581b62a2d314a1e6f63375063"}}

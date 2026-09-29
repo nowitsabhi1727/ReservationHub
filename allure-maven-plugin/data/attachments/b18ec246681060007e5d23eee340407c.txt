@@ -1,0 +1,5 @@
+Method: GET
+URI: https://restful-booker.herokuapp.com/booking
+Headers: Accept=*/*
+Content-Type=application/json
+Body: null

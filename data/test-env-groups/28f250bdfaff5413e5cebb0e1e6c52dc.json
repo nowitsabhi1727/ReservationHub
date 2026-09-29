@@ -1,0 +1,1 @@
+{"id":"28f250bdfaff5413e5cebb0e1e6c52dc","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBookingWithInvalidAuth","name":"Verify PATCH request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"699f25015a2765cf61a598714ac5b71b"}}
