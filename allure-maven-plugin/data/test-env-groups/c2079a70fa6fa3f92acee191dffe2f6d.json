@@ -1,1 +1,0 @@
-{"id":"c2079a70fa6fa3f92acee191dffe2f6d","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBookingWithoutAuth","name":"Verify PATCH request is rejected when authentication is missing","status":"passed","testResultsByEnv":{"default":"a2b7a8ce4d31dfdb4136fe7495afa7dd"}}

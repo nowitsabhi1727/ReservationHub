@@ -1,1 +1,0 @@
-{"id":"dc981e6d2521619f8e029fe8b464c4eb","fullName":"com.api.tests.BookingUpdateTest.updateBookingWithoutAuth","name":"Verify PUT request is rejected when authentication is missing","status":"passed","testResultsByEnv":{"default":"29bebfc63f52c8e1b11f065cd4579b0a"}}

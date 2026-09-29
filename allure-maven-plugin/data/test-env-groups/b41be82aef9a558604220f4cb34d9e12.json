@@ -1,1 +1,0 @@
-{"id":"b41be82aef9a558604220f4cb34d9e12","fullName":"com.api.tests.AuthAPITest.invalidUsername","name":"Verify authentication fails with invalid username","status":"passed","testResultsByEnv":{"default":"d4dc93a8012167b402a176d3f299261b"}}

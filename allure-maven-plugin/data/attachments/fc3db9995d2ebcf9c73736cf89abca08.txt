@@ -1,6 +1,0 @@
-Method: GET
-URI: https://restful-booker.herokuapp.com/booking/730
-Headers: Cookie=token=********
-Accept=application/json
-Content-Type=application/json
-Body: {"firstname":"AbhishekPATCH"}

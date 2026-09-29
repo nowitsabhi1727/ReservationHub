@@ -1,0 +1,5 @@
+Method: POST
+URI: https://restful-booker.herokuapp.com/auth
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"username":"admin","password":"password123"}

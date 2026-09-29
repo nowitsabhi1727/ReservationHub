@@ -1,1 +1,0 @@
-{"id":"84db1d12a869dfb710bd0abcd268c9d1","fullName":"com.api.tests.BookingCreateNegativeAPITest.emptyCheckinDate","name":"Verify booking creation with empty checkin date","status":"passed","testResultsByEnv":{"default":"37de37c6dc0a3ab5ee42985db312cc86"}}

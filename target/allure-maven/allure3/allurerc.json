@@ -1,0 +1,13 @@
+{
+  "historyPath" : "/Users/apple/Desktop/Test/ReservationHub/.allure/history/report/history.jsonl",
+  "appendHistory" : true,
+  "name" : "Allure",
+  "output" : "/Users/apple/Desktop/Test/ReservationHub/target/site/allure-maven-plugin",
+  "plugins" : {
+    "awesome" : {
+      "options" : {
+        "singleFile" : false
+      }
+    }
+  }
+}
