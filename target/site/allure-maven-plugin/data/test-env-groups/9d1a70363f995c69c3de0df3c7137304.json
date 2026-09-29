@@ -1,1 +1,0 @@
-{"id":"9d1a70363f995c69c3de0df3c7137304","fullName":"com.api.tests.BookingReadAPITest.getNonExistentBooking","name":"Verify retrieving a non-existent booking returns 404","status":"passed","testResultsByEnv":{"default":"a0da82e4f84ea6517eb2f93d2156dcb4"}}

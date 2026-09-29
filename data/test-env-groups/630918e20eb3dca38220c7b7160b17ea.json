@@ -1,1 +1,1 @@
-{"id":"630918e20eb3dca38220c7b7160b17ea","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBooking","name":"Verify user can partially update an existing booking","status":"passed","testResultsByEnv":{"default":"0887ea2be9105e843e2764b108d3ab18"}}
+{"id":"630918e20eb3dca38220c7b7160b17ea","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBooking","name":"Verify user can partially update an existing booking","status":"passed","testResultsByEnv":{"default":"263662a13edda842b8a074710a723633"}}

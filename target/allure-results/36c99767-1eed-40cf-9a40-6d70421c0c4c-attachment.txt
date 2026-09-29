@@ -1,0 +1,25 @@
+Status Code: 200
+Headers: Content-Length=202
+Content-Type=application/json; charset=utf-8
+Date=Tue, 29 Sep 2026 09:29:09 GMT
+Etag=W/"ca-haGsskyCC3Td7iROuD/rQZW/ppI"
+Nel={"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Report-To={"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=hSpjX9UZgfOAW%2FtekV8wjjDbHz8K%2FxmyJ1J52GJJLw0%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1790674149"}],"max_age":3600}
+Reporting-Endpoints=heroku-nel="https://nel.heroku.com/reports?s=hSpjX9UZgfOAW%2FtekV8wjjDbHz8K%2FxmyJ1J52GJJLw0%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1790674149"
+Server=Heroku
+Via=1.1 heroku-router
+X-Powered-By=Express
+Body: {
+    "bookingid": 4600,
+    "booking": {
+        "firstname": "Abhishek",
+        "lastname": "Test",
+        "totalprice": 1500,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2026-10-25",
+            "checkout": "2026-11-01"
+        },
+        "additionalneeds": "Breakfast"
+    }
+}

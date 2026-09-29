@@ -1,1 +1,0 @@
-{"id":"0c24aecf3af7f75d6108fb4cd23aff70","fullName":"com.api.tests.BookingDeleteTest.deleteBookingWithoutAuth","name":"Verify DELETE request is rejected when authentication is missing","status":"passed","testResultsByEnv":{"default":"2c6759f11837ba1ca13c38f2ee0d4bb5"}}

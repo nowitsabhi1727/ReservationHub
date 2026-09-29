@@ -1,0 +1,6 @@
+Method: GET
+URI: https://restful-booker.herokuapp.com/booking/3679
+Headers: Accept=*/*
+Cookie=token=********
+Content-Type=application/json
+Body: {"firstname":"Abhishek","lastname":"Test","totalprice":1500,"depositpaid":true,"bookingdates":{"checkin":"2026-10-25","checkout":"2026-11-01"},"additionalneeds":"Breakfast"}

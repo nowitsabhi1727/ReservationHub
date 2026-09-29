@@ -1,1 +1,1 @@
-{"id":"28f250bdfaff5413e5cebb0e1e6c52dc","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBookingWithInvalidAuth","name":"Verify PATCH request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"3ce780ef198731e54dace9014669a904"}}
+{"id":"28f250bdfaff5413e5cebb0e1e6c52dc","fullName":"com.api.tests.BookingPartialUpdateTest.partialUpdateBookingWithInvalidAuth","name":"Verify PATCH request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"d12e4a7c3b5195d386d3929f873c8bfb"}}

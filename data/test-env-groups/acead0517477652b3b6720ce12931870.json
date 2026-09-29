@@ -1,1 +1,1 @@
-{"id":"acead0517477652b3b6720ce12931870","fullName":"com.api.tests.BookingUpdateTest.updateBookingWithInvalidAuth","name":"Verify PUT request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"536ffe17c8541cba4190266be0b26931"}}
+{"id":"acead0517477652b3b6720ce12931870","fullName":"com.api.tests.BookingUpdateTest.updateBookingWithInvalidAuth","name":"Verify PUT request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"8cb24c3f7b55edc5a15313ac6cd2686b"}}

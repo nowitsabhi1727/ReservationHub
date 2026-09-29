@@ -1,1 +1,1 @@
-{"id":"dc981e6d2521619f8e029fe8b464c4eb","fullName":"com.api.tests.BookingUpdateTest.updateBookingWithoutAuth","name":"Verify PUT request is rejected when authentication is missing","status":"passed","testResultsByEnv":{"default":"cf852f72c22275a2e26b1e611907faef"}}
+{"id":"dc981e6d2521619f8e029fe8b464c4eb","fullName":"com.api.tests.BookingUpdateTest.updateBookingWithoutAuth","name":"Verify PUT request is rejected when authentication is missing","status":"passed","testResultsByEnv":{"default":"713e8b5aa6c4b25b920f42cb4580292f"}}

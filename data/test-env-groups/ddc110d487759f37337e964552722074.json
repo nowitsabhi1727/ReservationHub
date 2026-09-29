@@ -1,1 +1,1 @@
-{"id":"ddc110d487759f37337e964552722074","fullName":"com.api.tests.BookingDeleteTest.deleteBooking","name":"Verify user can delete an existing booking","status":"passed","testResultsByEnv":{"default":"a894280ac98940989e131160d5d426ae"}}
+{"id":"ddc110d487759f37337e964552722074","fullName":"com.api.tests.BookingDeleteTest.deleteBooking","name":"Verify user can delete an existing booking","status":"passed","testResultsByEnv":{"default":"5ee7f89f02974fb27a87f3b36e376c13"}}

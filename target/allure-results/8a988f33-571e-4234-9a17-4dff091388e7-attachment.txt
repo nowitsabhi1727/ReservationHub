@@ -1,0 +1,14 @@
+Status Code: 200
+Headers: Content-Length=27
+Content-Type=application/json; charset=utf-8
+Date=Tue, 29 Sep 2026 09:28:06 GMT
+Etag=W/"1b-q9DCBL7NXCVzI7ZNG/2ak36v3DE"
+Nel={"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+Report-To={"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=t0GuanG0XK4v9l39IZliJpmeHahYu%2Fv5o22ZcdqoWoE%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1790674086"}],"max_age":3600}
+Reporting-Endpoints=heroku-nel="https://nel.heroku.com/reports?s=t0GuanG0XK4v9l39IZliJpmeHahYu%2Fv5o22ZcdqoWoE%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1790674086"
+Server=Heroku
+Via=1.1 heroku-router
+X-Powered-By=Express
+Body: {
+    "token": "7c5ccd5fc7726ea"
+}

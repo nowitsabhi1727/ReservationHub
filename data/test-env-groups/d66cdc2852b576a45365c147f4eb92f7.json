@@ -1,1 +1,1 @@
-{"id":"d66cdc2852b576a45365c147f4eb92f7","fullName":"com.api.tests.BookingCRUDTest.bookingCRUDLifecycle","name":"Verify complete booking lifecycle - Create, Read, PUT, PATCH and Delete","status":"passed","testResultsByEnv":{"default":"ff9da0dfef49c2d7151548088d55ff8f"}}
+{"id":"d66cdc2852b576a45365c147f4eb92f7","fullName":"com.api.tests.BookingCRUDTest.bookingCRUDLifecycle","name":"Verify complete booking lifecycle - Create, Read, PUT, PATCH and Delete","status":"passed","testResultsByEnv":{"default":"4e2992d3b4ca0852d5b711b30db9103b"}}

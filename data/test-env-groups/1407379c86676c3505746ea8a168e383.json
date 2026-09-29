@@ -1,1 +1,1 @@
-{"id":"1407379c86676c3505746ea8a168e383","fullName":"com.api.tests.BookingDeleteTest.deleteBookingWithInvalidAuth","name":"Verify DELETE request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"b8222a086b0fd39675240d799bd31f6d"}}
+{"id":"1407379c86676c3505746ea8a168e383","fullName":"com.api.tests.BookingDeleteTest.deleteBookingWithInvalidAuth","name":"Verify DELETE request is rejected when authentication is invalid","status":"passed","testResultsByEnv":{"default":"dfed22da3f8f0a12ff55b535aa72fef1"}}

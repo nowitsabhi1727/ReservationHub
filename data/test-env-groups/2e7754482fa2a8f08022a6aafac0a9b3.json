@@ -1,1 +1,1 @@
-{"id":"2e7754482fa2a8f08022a6aafac0a9b3","fullName":"com.api.tests.BookingReadAPITest.getBookingWithNegativeId","name":"Verify retrieving a booking with negative ID is rejected","status":"passed","testResultsByEnv":{"default":"203fb5e8bbc6c6b96e40b4724e0b4b63"}}
+{"id":"2e7754482fa2a8f08022a6aafac0a9b3","fullName":"com.api.tests.BookingReadAPITest.getBookingWithNegativeId","name":"Verify retrieving a booking with negative ID is rejected","status":"passed","testResultsByEnv":{"default":"d35a2881fdcba5e8d5dbc3839ada39eb"}}

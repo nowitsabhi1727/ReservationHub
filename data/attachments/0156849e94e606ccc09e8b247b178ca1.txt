@@ -1,5 +1,0 @@
-Method: PATCH
-URI: https://restful-booker.herokuapp.com/booking/3316
-Headers: Accept=application/json
-Content-Type=application/json
-Body: {"firstname":"AbhishekUpdated"}

@@ -1,1 +1,1 @@
-{"id":"4ce0b1721b8767e9f1204aa3a397d767","fullName":"com.api.tests.BookingCreateAPITest.createBooking","name":"Verify user can create a booking","status":"passed","testResultsByEnv":{"default":"3a3a7cb16985baec196fba374b75f063"}}
+{"id":"4ce0b1721b8767e9f1204aa3a397d767","fullName":"com.api.tests.BookingCreateAPITest.createBooking","name":"Verify user can create a booking","status":"passed","testResultsByEnv":{"default":"1ac89de0bc8a428384e9200d302d939e"}}

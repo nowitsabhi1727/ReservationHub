@@ -1,1 +1,0 @@
-{"id":"fd871b5e10b9b885908144a896adc594","fullName":"com.api.tests.BookingCreateNegativeAPITest.zeroTotalPrice","name":"Verify booking creation with zero total price","status":"passed","testResultsByEnv":{"default":"d37c43aeb9bcd319b4f9365b933dc017"}}
