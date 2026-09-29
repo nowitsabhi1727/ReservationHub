@@ -28,7 +28,12 @@ The framework automates the public **Restful Booker API**.
 
 ```text
 https://restful-booker.herokuapp.com
+
 ```
+***Allure Report***
+
+https://nowitsabhi1727.github.io/ReservationHub/
+
 
 ### API Coverage
 
@@ -383,6 +388,12 @@ Open:
 ```text
 http://localhost:8080
 ```
+
+### Live Allure Report
+The generated test report is published through GitHub Pages:
+https://nowitsabhi1727.github.io/ReservationHub/
+
+The generated test report is published through GitHub Pages:
 
 The report provides:
 
